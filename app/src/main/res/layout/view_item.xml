@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/txt_food"
+                android:text="Title"
+                android:textSize="3mm"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_code"
+                android:text="Food" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
+            android:src="@mipmap/ic_launcher_round" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true">
+
+            <ImageButton
+                android:id="@+id/likeButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:background="@color/transparentColor"
+                app:srcCompat="@drawable/ic_favorite_black_24dp" />
+
+            <TextView
+                android:id="@+id/txt_like"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="3dp"
+                android:text="10"
+                android:textAlignment="center"
+                android:layout_toEndOf="@+id/likeButton" />
+
+            <ImageButton
+                android:id="@+id/dislikeButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@color/transparentColor"
+                app:srcCompat="@drawable/ic_favorite_border_black_24dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/txt_like"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/txt_dislike"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="3dp"
+                android:layout_toEndOf="@+id/dislikeButton"
+                android:text="2"
+                android:textAlignment="center" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
