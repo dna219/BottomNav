@@ -11,32 +11,42 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:minHeight="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@android:color/white"
-        app:titleTextAppearance="@style/AppTheme.NoActionBar"
+        android:background="?attr/colorPrimaryDark"
+        android:minHeight="30dp"
         android:titleMarginStart="50dp"
-        android:background="?attr/colorPrimaryDark">
+        app:titleTextAppearance="@style/AppTheme.NoActionBar"
+        app:titleTextColor="@android:color/white">
     </android.support.v7.widget.Toolbar>
 
+
+    <SearchView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/frameLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
-        android:layout_alignParentStart="true"
         android:layout_above="@+id/navigation"
-        android:layout_below="@+id/toolbar" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:animateLayoutChanges="true">
+
+    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation"
-        android:layout_alignParentStart="true" />
+        app:menu="@menu/navigation" />
+
 </RelativeLayout>

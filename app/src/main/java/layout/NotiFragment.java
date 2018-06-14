@@ -1,23 +1,18 @@
 package layout;
 
-import android.app.ActionBar;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.support.v7.widget.Toolbar;
+
 import com.example.pc.bottomnav.R;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import Adapter.InfoAdapter;
 import Model.Food;
 
@@ -52,7 +47,6 @@ public class NotiFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-
      * @return A new instance of fragment NotiFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -76,14 +70,12 @@ public class NotiFragment extends Fragment {
         recyclerView.setLayoutManager(llm);
 
         info_list = new ArrayList<>();
-        info_list.add(new Food("Số tin đã đăng","", "5"));
-        info_list.add(new Food("Số tin đã đọc","", "5"));
+
 
         adapter = new InfoAdapter(info_list);
         recyclerView.setAdapter(adapter);
         return view;
     }
-
 
 
 }

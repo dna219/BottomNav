@@ -30,4 +30,12 @@
         <!-- Highlight (i.e ripples or list selectors) -->
         <item name="colorControlHighlight">#111</item>
     </style>
+
+    <style name="FacebookLoginButton">
+        <item name="android:textSize">2mm</item>
+        <item name="android:background">@mipmap/facebook_signin_btn</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -39,10 +38,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
             android:layout_marginEnd="10dp"
             android:src="@mipmap/ic_launcher_round" />
 
@@ -68,19 +66,19 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="3dp"
+                android:layout_toEndOf="@+id/likeButton"
                 android:text="10"
-                android:textAlignment="center"
-                android:layout_toEndOf="@+id/likeButton" />
+                android:textAlignment="center" />
 
             <ImageButton
                 android:id="@+id/dislikeButton"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@color/transparentColor"
-                app:srcCompat="@drawable/ic_favorite_border_black_24dp"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/txt_like"
-                android:layout_marginStart="10dp" />
+                android:background="@color/transparentColor"
+                app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
 
             <TextView
                 android:id="@+id/txt_dislike"

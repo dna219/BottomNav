@@ -1,18 +1,13 @@
 package layout;
 
-import android.app.FragmentManager;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,8 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.pc.bottomnav.R;
 import com.google.firebase.database.ChildEventListener;
@@ -45,19 +38,20 @@ import Model.Food;
  */
 public class HomeFragment extends Fragment {
 
+
+    SwipeRefreshLayout swipeRefreshLayout;
     private OnHomeFragmentListener mListener;
     private RecyclerView recyclerView;
     private FoodAdapter adapter;
     private List<Food> result;
     private ProgressBar progressBar;
-    SwipeRefreshLayout swipeRefreshLayout;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
     public static HomeFragment newInstance() {
-        HomeFragment fragment= new HomeFragment();
+        HomeFragment fragment = new HomeFragment();
         return fragment;
     }
 
@@ -67,8 +61,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
-
-
 
 
         recyclerView = (RecyclerView) view.findViewById(R.id.food_list);
@@ -81,9 +73,9 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(llm);
 
         result = new ArrayList<>();
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference();
-        Query recentPostQuery = ref.child("food").endAt(8).limitToLast(10);
+        Query recentPostQuery = ref.child("food");
         // Attach a listener to read the data at our posts reference
         recentPostQuery.addChildEventListener(new ChildEventListener() {
             @Override
@@ -94,16 +86,20 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {
+            }
 
             @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+            }
 
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {
+            }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+            }
         });
 
         // Adapter
@@ -113,7 +109,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    public void refreshData(){
+    public void refreshData() {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -122,7 +118,8 @@ public class HomeFragment extends Fragment {
                 ftr.detach(HomeFragment.this).attach(HomeFragment.this).commit();
                 // To keep animation for 4 seconds
                 new Handler().postDelayed(new Runnable() {
-                    @Override public void run() {
+                    @Override
+                    public void run() {
                         // Stop animation (This will be after 3 seconds)
                         swipeRefreshLayout.setRefreshing(false);
                     }
@@ -132,10 +129,7 @@ public class HomeFragment extends Fragment {
 
         // Scheme colors for animation
         swipeRefreshLayout.setColorSchemeColors(
-                ResourcesCompat.getColor(getResources(),android.R.color.holo_blue_bright,null),
-                ResourcesCompat.getColor(getResources(),android.R.color.holo_green_light,null),
-                ResourcesCompat.getColor(getResources(),android.R.color.holo_orange_light,null),
-                ResourcesCompat.getColor(getResources(),android.R.color.holo_red_light,null)
+                ResourcesCompat.getColor(getResources(), android.R.color.holo_red_light, null)
         );
     }
 
